@@ -1,0 +1,21 @@
+@import './variable';
+
+.custom-button-primary {
+    padding: 10px 30px;
+    background: $primary-color;
+    color: #fff;
+    border: 1px solid $primary-color;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.custom-button-secondary {
+    padding: 10px 30px;
+    background: $secondary-color;
+    color: #fff;
+    border: 1px solid $secondary-color;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+}

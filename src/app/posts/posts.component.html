@@ -1,0 +1,19 @@
+<div class="card-wrapper">
+    <ng-container *ngIf="loading == false; else elseBlock">
+        <ng-container *ngIf="posts.length > 0; else elseBlock1">
+            <app-card *ngFor="let post of posts" [header]="post.title" [description]="post.body"></app-card>
+        </ng-container>
+        <ng-template #elseBlock1>
+            <p>No records found</p>
+        </ng-template>
+    </ng-container>
+    <ng-template #elseBlock>
+        <div
+            style="height: 500px; width: 500px; display: flex; flex-flow: column; justify-content: center; align-items: center;">
+            <div class="lds-ripple">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </ng-template>
+</div>
