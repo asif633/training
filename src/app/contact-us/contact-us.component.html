@@ -1,9 +1,26 @@
-<div class="card-wrapper">
+<!-- <div class="card-wrapper">
     <ng-container *ngIf="loading == false; else elseBlock">
         <app-card *ngFor="let post of posts" [header]="post.title" [description]="post.description"></app-card>
     </ng-container>
     <ng-template #elseBlock>
         Loading .....
     </ng-template>
+</div> -->
+
+<div style="padding: 30px;">
+
+    {{amount | currency: 'INR'}}
+    {{amount | currency: 'USD'}}
+
+    {{today | date: 'dd/MM/yyyy'}}
 </div>
 
+<ul>
+    <li *ngFor="let employee of employees; let i = index; let last = last; let first = first; let odd = odd; let even = even">
+        <div [ngStyle]="{'background': odd ? '#ddd': 'magenta'}">
+            <p>Serial: {{i+1}}</p>
+        <p>Name: {{employee.firstName}} {{employee.lastName}}</p>
+        <p>Age: {{employee.age}}</p>
+        </div>
+    </li>
+</ul>
