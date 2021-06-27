@@ -1,0 +1,20 @@
+<div class="container">
+
+    <button [routerLink]="['/new-category']">New Category</button>
+
+    <table id="customers" *ngIf="categories">
+        <tr>
+            <th>Category Name</th>
+            <th>Slug</th>
+            <th>Action</th>
+        </tr>
+        <tr *ngFor="let cat of categories">
+            <td>{{cat.name}}</td>
+            <td>{{cat.slug}}</td>
+            <td>
+                <a [routerLink]="['/edit-category', cat._id]">Edit</a>
+            </td>
+        </tr>
+    </table>
+
+</div>

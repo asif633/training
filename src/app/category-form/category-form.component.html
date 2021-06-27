@@ -1,0 +1,24 @@
+<div class="container">
+
+    <!-- <input type="text" [ngModel]="name" placeholder="Enter Name" (ngModelChange)="updateName($event)">
+    <input type="text" [(ngModel)]="name" placeholder="Enter Name">
+    
+    Hello {{name}} -->
+
+
+    <form (ngSubmit)="saveCategory()" class="form-column">
+
+        <label>Enter Category Name</label>
+        <input type="text" [(ngModel)]="name" name="name">
+        
+        <label>Enter Category Slug</label>
+        <input type="text" [(ngModel)]="slug" name="slug">
+
+        <label>Enter Category Banner Url</label>
+        <input type="text" [(ngModel)]="banner" name="banner">
+
+        <button type="submit" class="custom-button-primary">Save</button>
+
+    </form>
+
+</div>
