@@ -1,21 +1,45 @@
-<div class="container">
+<!-- <div class="container">
 
-    <!-- <input type="text" [ngModel]="name" placeholder="Enter Name" (ngModelChange)="updateName($event)">
-    <input type="text" [(ngModel)]="name" placeholder="Enter Name">
-    
-    Hello {{name}} -->
-
-
-    <form (ngSubmit)="saveCategory()" class="form-column">
+    <form (ngSubmit)="saveCategory()" #categoryForm="ngForm" class="form-column">
 
         <label>Enter Category Name</label>
-        <input type="text" [(ngModel)]="name" name="name">
+        <input type="text" [(ngModel)]="name" name="name" #nameCtrl="ngModel" required maxlength="30" minlength="5">
+        <div *ngIf="categoryForm.submitted && nameCtrl.invalid">
+            <p *ngIf="nameCtrl.errors.required" style="color: red">This field is required</p>
+            <p *ngIf="nameCtrl.errors.minlength" style="color: red">Minimum 5 characters</p>
+        </div>
         
         <label>Enter Category Slug</label>
         <input type="text" [(ngModel)]="slug" name="slug">
 
         <label>Enter Category Banner Url</label>
         <input type="text" [(ngModel)]="banner" name="banner">
+
+        <button type="submit" class="custom-button-primary">Save</button>
+
+    </form>
+
+</div> -->
+
+
+<div class="container">
+
+    <input name="category1111" type="text" [formControl]="category">
+
+    <form (ngSubmit)="saveCategoryReactive()" class="form-column" [formGroup]="catForm">
+
+        <label>Enter Category Name</label>
+        <input type="text" name="name" formControlName="name">
+        <div *ngIf="catForm.controls.name.errors">
+            <p *ngIf="catForm.controls.name.errors.required" style="color: red">This field is required</p>
+            <p *ngIf="catForm.controls.name.errors.minlength" style="color: red">Minimum 5 characters</p>
+        </div>
+        
+        <label>Enter Category Slug</label>
+        <input type="text" name="slug" formControlName="slug">
+
+        <label>Enter Category Banner Url</label>
+        <input type="text" name="banner" formControlName="banner">
 
         <button type="submit" class="custom-button-primary">Save</button>
 
